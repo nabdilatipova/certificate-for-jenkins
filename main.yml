@@ -5,15 +5,15 @@
   vars:
     apache_create_vhosts: false
     apache_remove_default_vhost: true
-    certbot_admin_email: "admin@example.com"
+    certbot_admin_email: "nasyikat0416@gmail.com"
     certbot_create_if_missing: true
     certbot_create_standalone_stop_services:
     - httpd
     certbot_certs:
     - domains:
-      - "jenkins.example.com"
-    apache_server_name: "jenkins.example.com"
-    apache_default_admin_email: "admin@example.com"
+      - "jenkins.nasyikataws.com"
+    apache_server_name: "jenkins.nasyikataws.com"
+    apache_default_admin_email: "nasyikat0416@gmail.com"
     apache_copy_ssl_files: false
     apache_ssl_cert_file_location: "/etc/letsencrypt/live/{{ apache_server_name }}/fullchain.pem"
     apache_ssl_cert_key_location: "/etc/letsencrypt/live/{{ apache_server_name }}/privkey.pem"
@@ -43,6 +43,6 @@
       when: ansible_os_family == 'RedHat'
 
   roles:
-    - ansible-role-apache
-    - ansible-role-certbot
-    - ansible-role-apache-proxy
+    - role: '/root/Jenkins/roles/ansible-certbot-apache-proxy'
+    - role: '/root/Jenkins/roles/ansible-role-apache'
+    - role: '/root/Jenkins/roles/ansible-role-certbot'
