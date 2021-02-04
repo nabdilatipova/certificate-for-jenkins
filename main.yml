@@ -11,8 +11,8 @@
     - httpd
     certbot_certs:
     - domains:
-      - "jenkins.nasyikataws.com"
-    apache_server_name: "jenkins.nasyikataws.com"
+      - "r1soft.nasyikataws.com"
+    apache_server_name: "r1soft.nasyikataws.com"
     apache_default_admin_email: "nasyikat0416@gmail.com"
     apache_copy_ssl_files: false
     apache_ssl_cert_file_location: "/etc/letsencrypt/live/{{ apache_server_name }}/fullchain.pem"
@@ -43,6 +43,7 @@
       when: ansible_os_family == 'RedHat'
 
   roles:
-    - role: '/root/Jenkins/roles/ansible-certbot-apache-proxy'
     - role: '/root/Jenkins/roles/ansible-role-apache'
     - role: '/root/Jenkins/roles/ansible-role-certbot'
+    - role: '/root/Jenkins/roles/ansible-certbot-apache-proxy'
+    
